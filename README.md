@@ -1,14 +1,39 @@
 # Stable Tool-Augmented Chatbot
 
-A robust FastAPI-based chatbot application designed with tool augmentation capabilities, conversation summarization, and persistent memory using Redis.
+A **production-oriented FastAPI backend** for building **stateful LLM applications** with explicit control over **memory, context, and tool execution**.
 
-## Features
+This project focuses on **reliability and system design**, not just prompt-based conversations.
 
-- **OpenAI Integration**: Powered by OpenAI's GPT models for intelligent conversational abilities.
-- **Tool Augmentation**: Capable of using external tools to enhance response generation (found in `tools/` and `services/tool_service.py`).
-- **Session Management**: Uses Redis for handling session data and conversation history.
-- **Summarization**: Built-in service for summarizing conversations.
-- **FastAPI Framework**: High-performance, easy-to-use API framework.
+---
+
+##  Why this project exists
+
+Most LLM chat demos break when:
+- conversations become long
+- token usage explodes
+- tools are used incorrectly
+- memory is unmanaged
+
+This project demonstrates **how to build a stable LLM system** that avoids those pitfalls by design.
+
+> **Memory is what we store.  
+> Context is what we choose to send to the model.**
+
+---
+
+##  Key Features
+
+###  Stateful Session Memory (Redis)
+- Each conversation is session-based
+- Messages and summaries are stored per session
+- TTL-based cleanup prevents stale memory accumulation
+
+---
+
+###  Explicit Context Management
+For every LLM call, context is constructed as:
+
+
 
 ## Project Structure
 
